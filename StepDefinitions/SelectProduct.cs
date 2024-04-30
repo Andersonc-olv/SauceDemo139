@@ -2,6 +2,7 @@
 using System;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
 using TechTalk.SpecFlow;
 using WebDriverManager;
 using WebDriverManager.DriverConfigs.Impl;
@@ -52,6 +53,7 @@ namespace MyNamespace
         {
             driver.FindElement(By.Id("password")).SendKeys(password);
             driver.FindElement(By.Id("login-button")).Click();
+
         }
 
         [When(@"adiciono o produto no ""(.*)"" ao carrinho")]
@@ -70,7 +72,10 @@ namespace MyNamespace
         [Then(@"exibe ""Products' no titulo da secao")]
         public void EntaoExibeProductsNoTituloDaSecao(String title)
         {
-            Assert.That(driver.FindElement(By.CssSelector("span.title")).Text, Is.EquivalentTo(title));
+            //Espera explicita pelo elemento span.title ser carregado na pagina
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromMilliseconds(3000));
+            wait.Until(d => driver.FindElement(By.CssSelector("span.title")).Displayed);
+            Assert.That(driver.FindElement(By.CssSelector("span.title")).Text, Is.EqualTo(title));
         }
 
         [Then(@"exibe a pagina do carrinho com a quantidade ""(.*)""")]
