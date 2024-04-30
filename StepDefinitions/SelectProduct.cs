@@ -36,14 +36,15 @@ namespace MyNamespace
         {
             driver.Quit(); //encerou o selenium
         }
-        [Given(@"que acesso a pagina inicial do site")]
+        [Given(@"que acesso a página inicial do site")]
         public void DadoQueAcessoAPaginaInicialDoSite()
         {
             driver.Navigate().GoToUrl("https://www.saucedemo.com/");
         }
 
-        [When(@"preecho o usuario como ""(.*)""")]
-        public void QuandoPreechoOUsuarioComo(string username)
+        [When(@"preencho o usuário como ""(.*)""")]
+        [When(@"preencho o ""(.*)""")]
+        public void QuandoPreenchoOUsuarioComo(string username)
         {
             driver.FindElement(By.Id("user-name")).SendKeys(username);
         }
@@ -53,14 +54,13 @@ namespace MyNamespace
         {
             driver.FindElement(By.Id("password")).SendKeys(password);
             driver.FindElement(By.Id("login-button")).Click();
-
         }
 
-        [When(@"adiciono o produto no ""(.*)"" ao carrinho")]
-        public void QuandoAdicionoOProdutoNoAoCarrinho(string product)
+        [When(@"adiciono o produto ""(.*)"" ao carrinho")]
+        public void QuandoAdicionoOProdutoAoCarrinho(string product)
         {
-            String productSelector = "add-to-cart-" + product.ToLower().Replace(" ","-");
-            Console.WriteLine($"Seletor de Produtos = {productSelector}");
+           String productSelector = "add-to-cart-" + product.ToLower().Replace(" ","-");
+           Console.WriteLine($"Seletor de Produto = {productSelector}");
         }
         
         [When(@"clico no icone do carrinho de compras")]
@@ -69,8 +69,8 @@ namespace MyNamespace
             
         }
 
-        [Then(@"exibe ""Products' no titulo da secao")]
-        public void EntaoExibeProductsNoTituloDaSecao(String title)
+       [Then(@"exibe ""(.*)"" no titulo da secao")]
+        public void EntaoExibeNoTituloDaSecao(string title)
         {
             //Espera explicita pelo elemento span.title ser carregado na pagina
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromMilliseconds(3000));
