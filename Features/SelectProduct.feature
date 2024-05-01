@@ -2,8 +2,8 @@
 Funcionalidade: Selecionar Produto na Loja
     @Loja
     Cenario: Selecao de Produto com Sucesso
-        Dado que acesso a página inicial do site 
-        Quando preencho o usuário como "standard_user"
+        Dado que acesso a pagina inicial do site 
+        Quando preencho o usuario como "standard_user"
         E a senha "secret_sauce" e clico no botao Login
         Entao exibe "Products" no titulo da secao
         Quando adiciono o produto "Sauce Labs Backpack" ao carrinho
