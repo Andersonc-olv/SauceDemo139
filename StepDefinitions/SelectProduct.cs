@@ -36,14 +36,14 @@ namespace MyNamespace
         {
             driver.Quit(); //encerou o selenium
         }
-        [Given(@"que acesso a página inicial do site")]
+        [Given(@"que acesso a pagina inicial do site")]
         public void DadoQueAcessoAPaginaInicialDoSite()
         {
             driver.Navigate().GoToUrl("https://www.saucedemo.com/");
         }
 
-        [When(@"preencho o usuário como ""(.*)""")]
-        [When(@"preencho o ""(.*)""")]
+        [When(@"preencho o usuario como ""(.*)""")]
+        //[When(@"preencho o ""(.*)""")]
         public void QuandoPreenchoOUsuarioComo(string username)
         {
             driver.FindElement(By.Id("user-name")).SendKeys(username);

@@ -93,10 +93,10 @@ namespace SauceDemo139.Features
             {
                 this.ScenarioStart();
 #line 5
-        testRunner.Given("que acesso a página inicial do site", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
+        testRunner.Given("que acesso a pagina inicial do site", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
 #line hidden
 #line 6
-        testRunner.When("preencho o usuário como \"standard_user\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
+        testRunner.When("preencho o usuario como \"standard_user\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line hidden
 #line 7
         testRunner.And("a senha \"secret_sauce\" e clico no botao Login", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
